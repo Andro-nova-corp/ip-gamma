@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyber Guessing Game</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #f0f0ff; /* Light blue background */
+            color: #ff6666; /* Light red text */
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #ffe6e6; /* Light red container */
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(255, 102, 102, 0.5); /* Light red shadow */
+        }
+
+        h1 {
+            text-align: center;
+            color: #4d4dff; /* Light blue text */
+        }
+
+        form {
+            text-align: center;
+        }
+
+        input[type="submit"] {
+            padding: 10px 20px;
+            background-color: #4d4dff; /* Light blue button */
+            color: #f0f0ff; /* Light blue text */
+            border: 2px solid #4d4dff; /* Light blue border */
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        .score {
+            text-align: center;
+            font-size: 20px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to the Cyber Guessing Game!</h1>
+        <div class="score">
+            Score: {{ score }}
+        </div>
+        <form action="/play" method="POST">
+            <input type="submit" value="Hack to Start">
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess Result</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #f0f0ff; /* Light blue background */
+            color: #ff6666; /* Light red text */
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #ffe6e6; /* Light red container */
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(255, 102, 102, 0.5); /* Light red shadow */
+        }
+
+        h2 {
+            text-align: center;
+            color: #ff6666; /* Light red text */
+        }
+
+        p, strong {
+            color: #ff6666; /* Light red text */
+            margin-bottom: 10px;
+        }
+
+        .container a {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: #ff6666; /* Light red text */
+            text-decoration: none;
+        }
+
+        .container a:hover {
+            text-decoration: underline;
+        }
+
+        .play-again {
+            margin-top: 20px;
+            color: #0f0; /* Green text */
+        }
+
+        .score {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Guess Result</h2>
+        <p>Your guess: <strong>{{ guess }}</strong></p>
+        <p>Correct location: <strong>{{ correct_location }}</strong></p>
+        {% if guess.lower() == correct_location.lower() %}
+            <p><strong>Congratulations! Your guess is correct.</strong></p>
+        {% else %}
+            <p><strong>Sorry, your guess is incorrect. The correct location is {{ correct_location }}.</strong></p>
+        {% endif %}
+        <div class="score">
+            Score: {{ score }}
+        </div>
+        <a href="/thanks">Thank You</a>
+        <a href="/play" class="play-again">Play Again</a>
+    </div>
+</body>
+</html>

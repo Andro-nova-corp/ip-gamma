@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess the Location</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #f0f0ff; /* Light blue background */
+            color: #ff6666; /* Light red text */
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #ffe6e6; /* Light red container */
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(255, 102, 102, 0.5); /* Light red shadow */
+        }
+
+        h2 {
+            text-align: center;
+            color: #ff6666; /* Light red text */
+        }
+
+        p {
+            color: #ff6666; /* Light red text */
+        }
+
+        form {
+            text-align: center;
+        }
+
+        input[type="text"], input[type="submit"] {
+            padding: 10px 20px;
+            background-color: #4d4dff; /* Light blue button */
+            color: #f0f0ff; /* Light blue text */
+            border: 2px solid #4d4dff; /* Light blue border */
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        input[type="text"] {
+            width: calc(100% - 100px); /* Adjust width */
+            margin-right: 10px;
+        }
+
+        input[type="submit"] {
+            width: 100px; /* Adjust width */
+        }
+
+        .image-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .image-container img {
+            max-width: 100%;
+            border-radius: 10px;
+        }
+
+        .score {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Guess the Location</h2>
+        <p>Guess the location for the following IP address:</p>
+        <p><strong>IP Address:</strong> {{ ip }}</p>
+
+        {% if ip == '8.8.8.8' %}
+            <div class="image-container">
+                <img src="{{ url_for('static', filename='Googleplex_HQ_(cropped).jpg') }}" alt="Googleplex HQ">
+            </div>
+        {% elif ip == '192.30.253.113' %}
+            <div class="image-container">
+                <img src="{{ url_for('static', filename='Screenshot 2024-03-15 141641.png') }}" alt="GitHub HQ">
+            </div>
+        {% elif ip == '185.199.110.153' %}
+            <div class="image-container">
+                <img src="{{ url_for('static', filename='Building92microsoft.jpg') }}" alt="Microsoft HQ">
+            </div>
+        {% elif ip == '17.172.224.47' %}
+            <div class="image-container">
+                <img src="{{ url_for('static', filename='apple.jpg') }}" alt="Apple HQ">
+            </div>
+        {% elif ip == '163.122.3.19' %}
+            <div class="image-container">
+                <img src="{{ url_for('static', filename='tcs.jpg') }}" alt="TCS HQ">
+            </div>
+        {% elif ip == '180.222.114.12' %}
+            <div class="image-container">
+                <img src="{{ url_for('static', filename='yahoo_image2.png') }}" alt="Yahoo HQ">
+            </div>
+        {% elif ip == '108.159.27.124' %}
+            <div class="image-container">
+                <img src="{{ url_for('static', filename='amazon.jpeg') }}" alt="Amazon HQ">
+            </div>
+        {% elif ip == '31.13.79.35' %}
+            <div class="image-container">
+                <img src="{{ url_for('static', filename='facebook.jpeg') }}" alt="Facebook HQ">
+            </div>
+        {% elif ip == '199.59.243.225' %}
+            <div class="image-container">
+                <img src="{{ url_for('static', filename='geeksforgeeks_logo.jpeg') }}" alt="GeeksforGeeks HQ">
+            </div>
+        {% elif ip == '44.240.158.19' %}
+            <div class="image-container">
+                <img src="{{ url_for('static', filename='Screenshot 2024-03-15 151918.png') }}" alt="Netflix HQ">
+            </div>
+        {% elif ip == '23.48.236.65' %}
+            <div class="image-container">
+                <img src="{{ url_for('static', filename='samsung.jpg') }}" alt="Samsung HQ">
+            </div>
+        {% elif ip == '108.159.91.124' %}
+            <div class="image-container">
+                <img src="{{ url_for('static', filename='Screenshot 2024-03-15 152230.png') }}" alt="Accenture HQ">
+            </div>
+        {% elif ip == '35.154.166.26' %}
+            <div class="image-container">
+                <img src="{{ url_for('static', filename='SRM.jpg') }}" alt="SRM Institute of Science and Technology HQ">
+            </div>
+        {% elif ip == '159.69.83.207' %}
+            <div class="image-container">
+                <img src="{{ url_for('static', filename='Starbucks-HQ-Thumb.jpg') }}" alt="Starbucks HQ">
+            </div>
+        {% elif ip == '163.53.76.86' %}
+            <div class="image-container">
+                <img src="{{ url_for('static', filename='flipkart.jpeg') }}" alt="Flipkart HQ">
+            </div>
+        {% elif ip == '96.6.35.109' %}
+            <div class="image-container">
+                <img src="{{ url_for('static', filename='nike.jpg') }}" alt="Nike HQ">
+            </div>
+        {% elif ip == '23.212.253.75' %}
+            <div class="image-container">
+                <img src="{{ url_for('static', filename='adidas_career_workplace_ht_2.jpg__0x700_q85_crop-smart_subsampling-2.jpg') }}" alt="Adidas HQ">
+            </div>
+        {% elif ip == '151.101.130.132' %}
+            <div class="image-container">
+                <img src="{{ url_for('static', filename='puma.png') }}" alt="Puma HQ">
+            </div>
+        {% elif ip == '23.212.253.17' %}
+            <div class="image-container">
+                <img src="{{ url_for('static', filename='houston-campus.jpg') }}" alt="HP HQ">
+            </div>
+        {% endif %}
+
+        <div class="score">
+            Score: {{ score }}
+        </div>
+
+        <form action="/check" method="POST">
+            <input type="text" id="guess" name="guess" placeholder="Enter your guess..." required autofocus>
+            <input type="hidden" name="ip" value="{{ ip }}">
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+</body>
+</html>
